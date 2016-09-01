@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using TribonnicServicesWebAPIwithTestCases.Controllers;
+using TribonnicServicesWebAPIwithTestCases.Models;
 namespace TribonnicServicesWebAPIwithTestCases.Tests.Controllers
 {
     [TestClass]
@@ -15,13 +16,15 @@ namespace TribonnicServicesWebAPIwithTestCases.Tests.Controllers
             TribonnicController controller = new TribonnicController();
 
             // Act
-            IEnumerable<int> result = controller.Get();
+
+            ResponsMessage objrestult = new ResponsMessage();
+            objrestult = controller.Get();
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(20, result.Count());
-            Assert.AreEqual(3, result.ElementAt(3));
-            Assert.AreEqual(9, result.ElementAt(5));
+            Assert.IsNotNull(objrestult.Series);
+            Assert.AreEqual(20, objrestult.Series.Count());
+            Assert.AreEqual(3, objrestult.Series.ElementAt(3));
+            Assert.AreEqual(9, objrestult.Series.ElementAt(5));
 
         }
 
@@ -30,13 +33,14 @@ namespace TribonnicServicesWebAPIwithTestCases.Tests.Controllers
         {
             // Arrange
             TribonnicController controller = new TribonnicController();
+            ResponsMessage objrestult = new ResponsMessage();
 
             // Act
-            int result = controller.GetbyDivisionPosition(division,position);
+            objrestult = controller.GetSeriesValue(division, position);
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(355, result);
+            Assert.IsNotNull(objrestult.Series);
+            Assert.AreEqual(355, objrestult.Result);
             
         }
     }
