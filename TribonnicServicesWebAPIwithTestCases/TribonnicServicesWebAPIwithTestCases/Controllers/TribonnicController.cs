@@ -36,7 +36,7 @@ namespace TribonnicServicesWebAPIwithTestCases.Controllers
         /// <param name="divisible"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        public ResponsMessage GetSeriesValue(int? divisible = 0, int? position = 0)
+        public ResponsMessage GetSeriesValue(int? SeriesLimit, int? divisible = 0, int? position = 0)
         {
             ResponsMessage objResponse = new ResponsMessage();
 
@@ -50,7 +50,7 @@ namespace TribonnicServicesWebAPIwithTestCases.Controllers
 
                     int restult = 0;
 
-                    for (int i = 0; i < 20; i++)
+                    for (int i = 0; i < SeriesLimit; i++)
                     {
                         lstValues.Add(Tribonnice.GetValues(i));
                     }
