@@ -3,7 +3,55 @@
 <head>
     <title></title>
 </head>
-<body>
 
+<script src="Script/angular.min.js"></script>
+<script src="Script/Module.js"></script>
+
+<script src="Script/URLFactory.js"></script>
+
+<script src="Script/TribonnicSeriesService.js"></script>
+<script src="Script/TribonicSeriesController.js"></script>
+
+<body>
+    <div ng-app="TribonnicModule" ng-controller="TribonnicController">
+        Enter TribonnicSeries Limits :- <input type="text" ng-model="SeriesLimit" />
+        <br />
+
+        Enter TribonnicSeries Divisbleby :- <input type="text" ng-model="Divisibleby" /><br />
+
+        Enter TribonnicSeries Position :- <input type="text" ng-model="Position" /><br />
+
+        Result :- <input type="text" ng-model="result" /><br />
+
+        <input type="button" value="Submit" ng-click="FetchSeries()" /><br />
+
+
+
+        <div class="form-group" style="width: 10% !important; height:300px;overflow-x:scroll;overflow-y:scroll">
+            <table cellspacing="2" cellpadding="2" class="table_view">
+                <tbody>
+
+                    <tr>
+                        <th class="thclass">
+                            Series
+                        </th>
+                    </tr>
+                    <tr data-ng-repeat="series in TribonicSericesList track by $index">
+
+                        <td>
+                            {{series}}
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </div>
 </body>
 </html>
